@@ -3,9 +3,27 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router/dom";
 import { router } from "./router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
-);
+async function enableMocking() {
+  if (import.meta.env.MODE !== "development") {
+    return;
+  }
+
+  const { worker } = await import("./mocks/browser");
+  await worker.start();
+}
+
+enableMocking();
+
+const queryClient = new QueryClient();
+
+enableMocking().then(() => {
+  createRoot(document.getElementById("root")!).render(
+    <StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </StrictMode>
+  );
+});

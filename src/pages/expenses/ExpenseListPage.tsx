@@ -1,5 +1,13 @@
+import { useExpensesQuery } from "../../features/expenses/queries";
+
 function ExpenseListPage() {
-  return <div>ExpenseListPage</div>;
+  const { data, isLoading, isError, refetch } = useExpensesQuery();
+
+  return (
+    <div>
+      <h1>ExpenseListPage</h1>
+    </div>
+  );
 }
 
 export default ExpenseListPage;
