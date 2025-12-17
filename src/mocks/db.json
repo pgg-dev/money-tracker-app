@@ -1,0 +1,29 @@
+{
+  "expenses": [
+    {
+      "id": 1,
+      "title": "점심",
+      "amount": 12000,
+      "category": "식비",
+      "date": "2025-11-01"
+    },
+    {
+      "id": 2,
+      "title": "지하철",
+      "amount": 1450,
+      "category": "교통",
+      "date": "2025-11-01"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "mia",
+      "email": "test@test.com"
+    }
+  ],
+  "categories": [
+    { "id": 1, "name": "식비" },
+    { "id": 2, "name": "교통" }
+  ]
+}
