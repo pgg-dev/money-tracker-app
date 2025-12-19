@@ -13,9 +13,8 @@ export const handlers = [
     ]);
   }),
 
-  http.get("/expenses/:id", ({ request }) => {
-    const url = new URL(request.url);
-    const id = url.searchParams.get("id");
+  http.get("/expenses/:id", ({ params }) => {
+    const { id } = params;
 
     return HttpResponse.json({
       id,
