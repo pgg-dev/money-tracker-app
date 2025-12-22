@@ -1,4 +1,5 @@
 import { Card, Typography, Stack } from "@mui/material";
+import { useNavigate } from "react-router";
 import type { Expense } from "../types";
 
 interface ExpenseCardProps {
@@ -6,8 +7,21 @@ interface ExpenseCardProps {
 }
 
 export default function ExpenseCard({ expense }: ExpenseCardProps) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/expenses/${expense.id}`);
+  };
+
   return (
-    <Card sx={{ mb: 2, p: 2 }}>
+    <Card
+      onClick={handleClick}
+      sx={{
+        mb: 2,
+        p: 2,
+        cursor: "pointer",
+      }}
+    >
       <Stack direction="row" justifyContent="space-between">
         <div>
           <Typography variant="subtitle2">

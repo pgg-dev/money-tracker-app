@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
-import { ExpenseListPage, HomePage } from "@/pages";
+import { HomePage } from "@/pages";
 import { Layout } from "./layout";
+import { ExpenseDetailPage, ExpenseListPage } from "@/pages/expenses";
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
       {
         path: "expenses",
         element: <ExpenseListPage />,
+      },
+      {
+        path: "expenses/:id",
+        element: <ExpenseDetailPage />,
       },
     ],
   },
