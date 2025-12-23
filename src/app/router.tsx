@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import { HomePage } from "@/pages";
-import { Layout } from "./layout";
+
 import { ExpenseDetailPage, ExpenseListPage } from "@/pages/expenses";
+import { Layout } from "./Layout";
 
 export const router = createBrowserRouter([
   {
